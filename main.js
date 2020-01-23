@@ -25,7 +25,8 @@
 const rollButton = document.getElementById("roll");
 const playerScore = document.getElementById("playerScore");
 const diceImage = document.getElementById("diceImage");
-
+const totalScore = document.getElementById("totalScore");
+const winStatus = document.getElementById("winStatus");
 
 diceImage.style.visibility = "hidden";
 
@@ -45,31 +46,38 @@ const winOrLose = () => {
     // numberRolled = diceRoll();
     // pointScored = scoreAddition();
         if (numberRolled == 1){
-            console.log("You have lost, try again.")
+            winStatus.textContent = ("You have lost, try again.")
             pointScored = 0;
+            // diceImage.style.visibility = "hidden";
         }
         else if (pointScored >= 20) {
-            console.log("You win!")
+            winStatus.textContent = ("You win!")
             pointScored = 0;
+            // diceImage.style.visibility = "hidden";
         }
         else {
-            console.log("Have another roll")
+            winStatus.textContent = ("Have another roll")
         }
         scoreAddition();
 }
 
 const scoreAddition = () => {
-    diceRoll()
+    // diceRoll()
     pointScored += numberRolled;
-    console.log(`Your total score is ${pointScored}`);
+    // totalScore.textContent = (`Your total score is ${pointScored}`);
 }
 
 rollButton.addEventListener("click", () => {
     diceRoll()
+    winOrLose()
     playerScore.textContent = numberRolled;
     diceImage.style.visibility = "visible";
     diceImage.src = `images/dice${numberRolled}.png`
-    console.log("Hello there");
+    // console.log("Hello there");
+    // pointScored += numberRolled;
+    totalScore.textContent = (`Your total score is ${pointScored}`)
+    // scoreAddition();
+
 })
 
 
