@@ -25,3 +25,21 @@ h1 {
     font-family: 'Nanum Myeongjo', serif;
     font-size: 15px;
 }
+
+#players {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-self: centre;
+    justify-content: space-around;
+}
+
+ #statistics {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-self: flex-end;
+} 
+
+
