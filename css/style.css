@@ -21,9 +21,28 @@ body {
 h1 {
     font-family: 'Alice', serif;
     font-size: 60px;
-    
-    
 }
+
+button {
+    display: inline-block;
+    padding: 0.35cm 0.8cm;
+    border: 0.1cm solid whitesmoke;
+    margin: 0 0.3cm 0.3cm 0;
+    border-radius: 0.12cm;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-weight: 300;
+    color: lightcoral;
+    text-align: center;
+    transition: all 0.2s;
+}
+
+button hover {
+    color: whitesmoke;
+    background-color: lightcoral;
+    opacity: 0.5;
+}
+
 
 #roll, #playButton {
     font-family: 'Nanum Myeongjo', serif;
@@ -45,8 +64,7 @@ h1 {
     box-shadow: -6px 4px 20px 20px rgba(0,0,0,0.18);
 }
 
-
-#players {
+#players  {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;

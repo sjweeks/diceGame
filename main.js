@@ -1,27 +1,5 @@
-// let playerOne = true
 
 
-// let game = () => {
-//     if (playerOne) {
-//         console.log("Player One's Turn")
-//         playerOne = false
-//     }
-//     else {
-//         console.log("Player Two's Turn")
-//         playerOne = true
-//     }
-// }
-
-// game();
-// game();
-// game();
-// game();
-
-
-// attempt to create a random number between 1 and 6
-
-
-// html element declarations
 const rollButton = document.getElementById("roll");
 const playerScore = document.getElementById("playerScore");
 const diceImage = document.getElementById("diceImage");
@@ -33,6 +11,8 @@ const rolled3 = document.getElementById("stats3");
 const rolled4 = document.getElementById("stats4");
 const rolled5 = document.getElementById("stats5");
 const rolled6 = document.getElementById("stats6");
+const player1 = document.getElementById("playerOne");
+const player2 = document.getElementById("playerTwo");
 // const restart = document.getElementById("playButton");
 
 diceImage.style.visibility = "hidden";
@@ -46,21 +26,37 @@ let no3 = 0;
 let no4 = 0;
 let no5 = 0;
 let no6 = 0;
+let playerOne = true
 
 //function declaration
 
 
-const restart = () => {
-    pointScored = 0;
-    winStatus.style.visibility = "";
-    winStatus.textContent = "";
-    diceImage.style.visibility = "hidden";
-    winStatus.textContent = "";
-    totalScore.textContent = "";
-    playerScore.textContent = "";
-    rollButton = "";
-}
+// const restart = () => {
+//     pointScored = 0;
+//     winStatus.style.visibility = "";
+//     winStatus.textContent = "";
+//     diceImage.style.visibility = "hidden";
+//     winStatus.textContent = "";
+//     totalScore.textContent = "";
+//     playerScore.textContent = "";
+//     rollButton = "";
+//     game();
+// }
 
+const game = () => {
+    if (playerOne) {
+        player1.textContent = ("Player One's turn");
+        diceRoll()
+        playerOne = false
+        player2.style.visibility = "hidden";
+    }
+    else {
+        player2.textContent = ("Player Two's turn");
+        playerOne = true
+        diceRoll();
+        player1.style.visibility = "hidden";
+    }
+}
 
 const diceRoll = () => {
     numberRolled = (Math.ceil(Math.random() * 6));
@@ -74,24 +70,23 @@ const winOrLose = () => {
     if (numberRolled == 1) {
         winStatus.textContent = ("You have lost, play again?.")
         pointScored = 0;
-        // restart()
+        game()
         
     }
     else if (pointScored >= 20) {
         winStatus.textContent = ("You win!")
         pointScored = 0;
-        // restart()
+        game()
     }
     else {
         winStatus.textContent = ("Have another roll")
     }
     scoreAddition();
+    // game();
 }
 
 const scoreAddition = () => {
-    // diceRoll()
     pointScored += numberRolled;
-    // totalScore.textContent = (`Your total score is ${pointScored}`);
 }
 
 rollButton.addEventListener("click", () => {
@@ -101,17 +96,15 @@ rollButton.addEventListener("click", () => {
     diceImage.style.visibility = "visible";
     diceImage.src = `img/dice${numberRolled}.png`;
     incrementFunction()
-    // console.log("Hello there");
-    // pointScored += numberRolled;
     totalScore.textContent = (`Your total score is ${pointScored}`)
+    game();
 })
 
-playButton.addEventListener("click", () => {
-    restart();
-})
+// playButton.addEventListener("click", () => {
+//     restart();
+// })
 
 const incrementFunction = () => {
-    // diceRoll()
     if (numberRolled == 1){
         no1++
         rolled1.textContent = no1;
@@ -137,23 +130,5 @@ const incrementFunction = () => {
         rolled6.textContent = no6;
     }
 }
-
-
-// function restart() {
-//     diceRoll()
-//     winOrLose()
-//     playerScore.textContent = numberRolled;
-//     diceImage.style.visibility = "visible";
-//     diceImage.src = `images/dice${numberRolled}.png`
-//     // console.log("Hello there");
-//     // pointScored += numberRolled;
-//     totalScore.textContent = (`Your total score is ${pointScored}`)
-//     // scoreAddition();
-
-// }
-
-// winOrLose();
-
-
 
 

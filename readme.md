@@ -8,7 +8,7 @@ Press to start the game, once you hit 20 you win the game. If you roll a 1 then 
 ## What I liked - 
 
 ## What I need to look into more
-Statistics and also two player toggling
+Two player toggling
 
 ## Screenshots 
 
