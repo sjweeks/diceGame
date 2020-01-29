@@ -3,10 +3,12 @@
 
 * {
     box-sizing: border-box;
-    background-color: mistyrose;
     text-align: center;
 }
 
+body {
+    background-color: mistyrose;
+}
 
 #diceImage{
     margin-left: auto;
@@ -19,6 +21,8 @@
 h1 {
     font-family: 'Alice', serif;
     font-size: 60px;
+    
+    
 }
 
 #roll, #playButton {
@@ -26,11 +30,27 @@ h1 {
     font-size: 15px;
 }
 
+#box{
+    box-sizing: border-box;
+    border-style: solid;
+    background-color: lightcoral;
+    opacity: 0.6;
+    padding: 20px;
+    border-radius: 50px;
+    align-content: center;
+    margin: 0 95px;
+    color: whitesmoke;
+    font-weight: 300;
+    /* box-shadow: 20px 10px 10px 0px rgba(0,0,0,0.3); */
+    box-shadow: -6px 4px 20px 20px rgba(0,0,0,0.18);
+}
+
+
 #players {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    align-self: centre;
+    align-self: center;
     justify-content: space-around;
 }
 
