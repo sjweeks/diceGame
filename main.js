@@ -26,10 +26,8 @@ let no3 = 0;
 let no4 = 0;
 let no5 = 0;
 let no6 = 0;
-let playerOne = true
-
-//function declaration
-
+let playerOne = true;
+// let playerTwo = 0;
 
 // const restart = () => {
 //     pointScored = 0;
@@ -46,10 +44,12 @@ let playerOne = true
 const game = () => {
     if (playerOne) {
         player1.textContent = ("Player One's turn");
-        playerOne = false
+        playerOne = false;
         player2.style.visibility = "hidden";
     }
-    else if (playerTwo) {
+    // else if (playerTwo = true) {
+    else {
+        // playerTwo = true;
         player2.textContent = ("Player Two's turn");
         playerOne = true
         player1.style.visibility = "hidden";
@@ -79,6 +79,7 @@ const winOrLose = () => {
         winStatus.textContent = ("Have another roll")
     }
     scoreAddition();
+    // game()
 }
 
 const scoreAddition = () => {
@@ -88,6 +89,7 @@ const scoreAddition = () => {
 rollButton.addEventListener("click", () => {
     diceRoll()
     winOrLose()
+    // game()
     playerScore.textContent = numberRolled;
     diceImage.style.visibility = "visible";
     diceImage.src = `img/dice${numberRolled}.png`;
