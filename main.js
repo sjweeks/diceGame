@@ -46,14 +46,12 @@ let playerOne = true
 const game = () => {
     if (playerOne) {
         player1.textContent = ("Player One's turn");
-        diceRoll()
         playerOne = false
         player2.style.visibility = "hidden";
     }
-    else {
+    else if (playerTwo) {
         player2.textContent = ("Player Two's turn");
         playerOne = true
-        diceRoll();
         player1.style.visibility = "hidden";
     }
 }
@@ -71,7 +69,6 @@ const winOrLose = () => {
         winStatus.textContent = ("You have lost, play again?.")
         pointScored = 0;
         game()
-        
     }
     else if (pointScored >= 20) {
         winStatus.textContent = ("You win!")
@@ -82,7 +79,6 @@ const winOrLose = () => {
         winStatus.textContent = ("Have another roll")
     }
     scoreAddition();
-    // game();
 }
 
 const scoreAddition = () => {
