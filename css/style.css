@@ -64,7 +64,7 @@ button hover {
     box-shadow: -6px 4px 20px 20px rgba(0,0,0,0.18);
 }
 
-#players  {
+.players  {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -73,6 +73,7 @@ button hover {
 }
 
  #statistics {
+     color: lightcoral;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
