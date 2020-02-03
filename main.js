@@ -28,16 +28,17 @@ let playerOne = true;
 const game = () => {
   if (playerOne) {
     // player1.textContent = "Player One's turn";
-    console.log("Player One Text")
+    console.log("Player One Text");
+    player1.style.visibility = "visible";
     player2.style.visibility = "hidden";
     console.log("Player one, you've had your turn.");
 
     playerOne = false;
     playerTurn();
-  }
-  else {
+  } else {
     // player2.textContent = "Player Two's turn";
-    console.log("Player One Text")
+    console.log("Player One Text");
+    player2.style.visibility = "visible";
     player1.style.visibility = "hidden";
     console.log("Player two, you've had your turn.");
     playerOne = true;
@@ -46,15 +47,14 @@ const game = () => {
 };
 
 const playerTurn = () => {
-    if (playerOne) {
-        player1.textContent = "Player One's turn";
-        console.log("Player One New Func")
-    }
-    else {
-        player2.textContent = "Player Two's turn";
-        console.log("Player Two New Func")
-    }
-}
+  if (playerOne) {
+    player1.textContent = "Player One's turn";
+    console.log("Player One New Func");
+  } else {
+    player2.textContent = "Player Two's turn";
+    console.log("Player Two New Func");
+  }
+};
 
 const diceRoll = () => {
   numberRolled = Math.ceil(Math.random() * 6);
@@ -63,37 +63,45 @@ const diceRoll = () => {
 
 const winOrLose = () => {
   if (playerOne) {
-    if (numberRolled == 1) {
-      winStatus.textContent = "Player One, you have lost, play again?.";
-      playerOnePointsScored = 0;
-      game();
-    //   playerTurn();
-    } else if (playerOnePointsScored >= 20) {
-      winStatus.textContent = "Player One, you win!";
-      playerOnePointsScored = 0;
-      game();
-    //   playerTurn();
-    } else {
-      winStatus.textContent = "Player Two, it's your turn, have another roll";
-    //   playerTurn();
-    }
+    playerOneScoreFunction();
   } else {
-    if (numberRolled == 1) {
-      winStatus.textContent = "Player Two, you have lost, play again?.";
-      playerTwoPointsScored = 0;
-      game();
-    //   playerTurn();
-    } else if (playerTwoPointsScored >= 20) {
-      winStatus.textContent = "Player Two, you win!";
-      playerTwoPointsScored = 0;
-      game();
-    //   playerTurn();
-    } else {
-      winStatus.textContent = "Player One, it's your turn, have another roll";
-    //   playerTurn();
-    }
+    playerTwoScoreFunction();
   }
   scoreAddition();
+};
+
+const playerOneScoreFunction = () => {
+  if (numberRolled == 1) {
+    winStatus.textContent = "Player One, you have lost, play again?.";
+    playerOnePointsScored = 0;
+    game();
+    //   playerTurn();
+  } else if (playerOnePointsScored >= 20) {
+    winStatus.textContent = "Player One, you win!";
+    playerOnePointsScored = 0;
+    game();
+    //   playerTurn();
+  } else {
+    winStatus.textContent = "Player Two, it's your turn, have another roll";
+    //   playerTurn();
+  }
+};
+
+const playerTwoScoreFunction = () => {
+  if (numberRolled == 1) {
+    winStatus.textContent = "Player Two, you have lost, play again?.";
+    playerTwoPointsScored = 0;
+    game();
+    //   playerTurn();
+  } else if (playerTwoPointsScored >= 20) {
+    winStatus.textContent = "Player Two, you win!";
+    playerTwoPointsScored = 0;
+    game();
+    //   playerTurn();
+  } else {
+    winStatus.textContent = "Player One, it's your turn, have another roll";
+    //   playerTurn();
+  }
 };
 
 const scoreAddition = () => {
@@ -107,7 +115,7 @@ const scoreAddition = () => {
 rollButton.addEventListener("click", () => {
   diceRoll();
   winOrLose();
-//   playerTurn();
+  //   playerTurn();
   playerScore.textContent = numberRolled;
   diceImage.style.visibility = "visible";
   diceImage.src = `img/dice${numberRolled}.png`;
