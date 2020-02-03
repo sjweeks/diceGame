@@ -1,7 +1,5 @@
 # Dice Game Challenge
 
-
-
 ## Rules - 
 Press to start the game, once you hit 20 you win the game. If you roll a 1 then you automatically lose the game. 
 
